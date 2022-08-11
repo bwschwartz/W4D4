@@ -18,5 +18,17 @@ class Array
     pairs
   end
 
+  def my_transpose
+    width=self[0].length
+    height = self.length
+    tranpose = Array.new(height) {Array.new(width)}
+    self.each_with_index do |row, i|
+      row.each_with_index do |ele, j|
+        transpose[j][i] = ele
+      end
+    end
+    transpose
+  end
+
 
 end
