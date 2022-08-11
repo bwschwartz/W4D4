@@ -11,19 +11,20 @@ class TowersOfHanoi
     until won?
       p "Choose a start and end tower"
       input = gets.chomp
-      start_tower = input[0].to_i
-      end_tower = input[-1].to_i
+      start_tower, end_tower = input[0].to_i, input[-1].to_i
 
       moved = false
       until moved
         moved = move(start_tower, end_tower)
-        if !moved
+        unless moved
           puts "Invalid move. Try again!"
           break
         end
       end
+
       our_print
     end
+
     puts "You won!"
   end
 
@@ -32,18 +33,17 @@ class TowersOfHanoi
   end
 
   def move(start_tower, end_tower)
-    unless stacks[start_tower].empty?
-      if stacks[end_tower].empty? || stacks[start_tower][-1] < stacks[end_tower][-1]
-        disk = stacks[start_tower].pop
-        stacks[end_tower] << disk
-        return true
-      else
-        false
-      end
-    end
-    false
-  end
+    return false if stacks[start_tower].empty?
 
+    if stacks[end_tower].empty? || stacks[start_tower][-1] < stacks[end_tower][-1]
+      disk = stacks[start_tower].pop
+      stacks[end_tower] << disk
+      true
+    else
+      false
+    end
+
+  end
 
   def our_print
     stacks.each do |stack|
@@ -53,4 +53,7 @@ class TowersOfHanoi
     end
   end
 
+end
+
+if __FILE__ == $PROGRAM_NAME
 end
