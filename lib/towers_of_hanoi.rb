@@ -56,4 +56,6 @@ class TowersOfHanoi
 end
 
 if __FILE__ == $PROGRAM_NAME
+  t = TowersOfHanoi.new
+  t.play
 end
