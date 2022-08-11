@@ -1,5 +1,5 @@
-require 'rspec'
 
+require 'byebug'
 class Array
 
   def my_uniq
@@ -30,5 +30,19 @@ class Array
     transpose
   end
 
-
+  def stock_picker
+    max = 0
+    days = [0, 0]
+    # debugger
+    (0...self.length).each do |i|
+      (i+1...self.length).each do |j|
+        price_dif = self[j] - self[i]
+        if price_dif > max
+          days[0] = i
+          days[1] = j
+        end
+      end
+    end
+    days
+  end
 end

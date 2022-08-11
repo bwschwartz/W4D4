@@ -21,7 +21,7 @@ describe "#two_sum"do
     end
   end
 
-describe "#my_transpose" do 
+describe "#my_transpose" do
   let(:array) {Array.new([
     [0,1,2],
     [3,4,5],
@@ -36,4 +36,12 @@ describe "#my_transpose" do
   end
 end
 
+describe "#stock_picker" do
+  let(:array) {Array.new([100, 10, 20, 15, 40, 50, 5, 1000])}
+  it "should take in an array of prices as arguments and return an array with index of best buy and sell day" do
+    expect(array.stock_picker).to eq([6, 7])
+  end
 end
+
+end
+
